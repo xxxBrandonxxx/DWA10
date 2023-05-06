@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally count</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
+    <script type="module" defer src="/resetButton.js"></script>
+    <script type="module" defer src="/inputset.js"></script>
+    <script type="module" src="/scripts.js" defer></script>
+     
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">
+            Tally Count
+        </h1>
+    </header>
+    <div class="Reset">
+        <sl-button data-key="reset" variant="warning">Reset</sl-button>
+     </div>
+     <div>
+        <h1>Set limit</h1>
+     </div>
+     <div class="counter__limits">
+        <div>
+          <label for="min">Min</label>
+          <input type="number" data-key="min" name="min" min="-1000" max="1000" step="1">
+          <button data-key="set-min-button">Set Min</button>
+        </div>
+        <div>
+          <label for="max">Max</label>
+          <input type="number" data-key="max" name="max" min="-1000" max="1000" step="1">
+          <button data-key="set-max-button">Set Max</button>
+        </div>
+      </div>
+
+    <main class="counter">
+         <input class="counter__value" data-key="number" readonly value ="0">
+         <div class="counter__actions">
+            <button data-key="subtract" class="counter__button counter__button_first">-</button>
+            <button data-key="add" class="counter__button">+</button>
+         </div>
+    </main>
+    <footer class="footer">
+        Inspired by <a class="footer__link" href="https://tallycount.app/">Tally Count</a>. Note that this is just a 
+        learning project for student to practice for learning JavaScript
+    </footer>
+</body>
+</html>
