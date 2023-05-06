@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/light.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
     <script type="module" defer src="/resetButton.js"></script>
-    <script type="module" defer src="/inputset.js"></script>
     <script type="module" src="/scripts.js" defer></script>
+    <script type="module" defer src="/inputset.js"></script>
+
      
 </head>
 <body>
@@ -26,16 +27,20 @@
      </div>
      <div>
         <h1>Set limit</h1>
-     </div>
+     </div><h1>Counter App</h1>
+     <input type="text" data-key="number" value="0" disabled>
+     <button data-key="subtract">-</button>
+     <button data-key="add">+</button>
+     <button data-key="reset">Reset</button>
      <div class="counter__limits">
         <div>
           <label for="min">Min</label>
-          <input type="number" data-key="min" name="min" min="-1000" max="1000" step="1">
+          <input type="number" data-key="min" name="min" min="-1000" max="1000">
           <button data-key="set-min-button">Set Min</button>
         </div>
         <div>
           <label for="max">Max</label>
-          <input type="number" data-key="max" name="max" min="-1000" max="1000" step="1">
+          <input type="number" data-key="max" name="max" min="-1000" max="1000">
           <button data-key="set-max-button">Set Max</button>
         </div>
       </div>

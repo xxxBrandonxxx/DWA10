@@ -1,20 +1,41 @@
+const subtract = document.querySelector('[data-key="subtract"]');
+      const add = document.querySelector('[data-key="add"]');
+      const resetButton = document.querySelector('[data-key="reset"]');
+      const counter = document.querySelector('[data-key="number"]');
+      let counterValue = 0;
+      const MIN = -10;
+      const MAX = 10;
 
-// Select the reset button element
-const resetButton = document.querySelector('[data-key="reset"]');
-const resetCounter = () => {
-    counterValue.value = 0;
-    alert('Counter has been reset!');
-  
-    // Re-enable the buttons
-    subtract.disabled = false;
-    add.disabled = false;
-  };
+      const subtractHandler = () => {
+        if (counterValue > MIN) {
+          counterValue--;
+          counter.value = counterValue;
+          add.disabled = false;
+        }
+        if (counterValue === MIN) {
+          subtract.disabled = true;
+        }
+      };
 
-// Select the counter value element
-const counterValue = document.querySelector('.counter__value');
+      const addHandler = () => {
+        if (counterValue < MAX) {
+          counterValue++;
+          counter.value = counterValue;
+          subtract.disabled = false;
+        }
+        if (counterValue === MAX) {
+          add.disabled = true;
+        }
+      };
 
-// Define the reset function
+      const resetCounter = () => {
+        counterValue = 0;
+        counter.value = counterValue;
+        alert('Counter has been reset!');
+        subtract.disabled = false;
+        add.disabled = false;
+      };
 
-
-// Add an event listener to the reset button
-resetButton.addEventListener('click', resetCounter);
+      subtract.addEventListener('click', subtractHandler);
+      add.addEventListener('click', addHandler);
+      resetButton.addEventListener('click', resetCounter);
