@@ -1,10 +1,10 @@
-const subtract = document.querySelector('[data-key="subtract"]');
+      const subtract = document.querySelector('[data-key="subtract"]');
       const add = document.querySelector('[data-key="add"]');
       const resetButton = document.querySelector('[data-key="reset"]');
       const counter = document.querySelector('[data-key="number"]');
       let counterValue = 0;
-      const MIN = -10;
-      const MAX = 10;
+      const MIN = -1000;
+      const MAX = 1000;
 
       const subtractHandler = () => {
         if (counterValue > MIN) {
@@ -27,14 +27,19 @@ const subtract = document.querySelector('[data-key="subtract"]');
           add.disabled = true;
         }
       };
+      resetButton.addEventListener('click', () => {
+        currentValue = resetCounter(currentValue);
+      });
 
-      const resetCounter = () => {
-        counterValue = 0;
-        counter.value = counterValue;
+      const resetCounter = (currentValue) => {
+        counter.value = 0;
         alert('Counter has been reset!');
         subtract.disabled = false;
         add.disabled = false;
+        return 0;
       };
+
+      
 
       subtract.addEventListener('click', subtractHandler);
       add.addEventListener('click', addHandler);

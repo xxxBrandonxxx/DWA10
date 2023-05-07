@@ -13,6 +13,31 @@ let MAX_NUMBER = parseInt(maxInput.value);
 const stepAmount = 1;
 let currentValue = 0;
 
+// Validate min and max inputs
+const validateInputs = () => {
+    let min = parseInt(minInput.value);
+    let max = parseInt(maxInput.value);
+
+    if (min >= 0) {
+        minInput.value = "";
+        throw new Error("Sorry, only negative numbers are allowed for the minimum value.");
+    }
+
+    if (max <= 0) {
+        maxInput.value = "";
+        throw new Error("Sorry, only positive numbers are allowed for the maximum value.");
+    }
+
+    if (min > max) {
+        minInput.value = "";
+        maxInput.value = "";
+        throw new Error("Sorry, the minimum value cannot be greater than the maximum value.");
+    }
+
+    MIN_NUMBER = min;
+    MAX_NUMBER = max;
+};
+
 // Handle subtract button click event
 const subtractHandler = () => {
     const newValue = currentValue - stepAmount;
@@ -53,19 +78,27 @@ const addHandler = () => {
 
 // Handle set min button click event
 setMinButton.addEventListener('click', () => {
-    MIN_NUMBER = parseInt(minInput.value);
-    if (currentValue < MIN_NUMBER) {
-        currentValue = MIN_NUMBER;
-        add.disabled = false;
+    try {
+        validateInputs();
+        if (currentValue < MIN_NUMBER) {
+            currentValue = MIN_NUMBER;
+            add.disabled = false;
+        }
+    } catch (error) {
+        alert(error.message);
     }
 });
 
 // Handle set max button click event
 setMaxButton.addEventListener('click', () => {
-    MAX_NUMBER = parseInt(maxInput.value);
-    if (currentValue > MAX_NUMBER) {
-        currentValue = MAX_NUMBER;
-        subtract.disabled = false;
+    try {
+        validateInputs();
+        if (currentValue > MAX_NUMBER) {
+            currentValue = MAX_NUMBER;
+            subtract.disabled = false;
+        }
+    } catch (error) {
+        alert(error.message);
     }
 });
 

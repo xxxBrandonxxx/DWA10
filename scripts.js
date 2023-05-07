@@ -1,12 +1,9 @@
-// Set the maximum and minimum numbers that the counter can reach
-const MAX_NUMBER = 1000;
-const MIN_NUMBER = -1000;
 
 // Set the amount to increment or decrement the counter
 const stepAmount = 1;
 
 // Set the initial value of the counter
-let currentValue = -5;
+let currentValue = 0;
 
 // Define the function to handle the click on the subtract button
 const subtractHandler = () => {
@@ -62,6 +59,4 @@ const addHandler = () => {
     }
 };
 
-// Add event listeners to the subtract and add buttons
-subtract.addEventListener('click', subtractHandler);
-add.addEventListener('click', addHandler);
+
