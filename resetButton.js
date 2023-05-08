@@ -1,8 +1,8 @@
-      const subtract = document.querySelector('[data-key="subtract"]');
+export const subtract = document.querySelector('[data-key="subtract"]');
       const add = document.querySelector('[data-key="add"]');
       const resetButton = document.querySelector('[data-key="reset"]');
       const counter = document.querySelector('[data-key="number"]');
-      let counterValue = 0;
+      let currentValue = 0;
       const MIN = -1000;
       const MAX = 1000;
 
@@ -28,19 +28,12 @@
         }
       };
       resetButton.addEventListener('click', () => {
-        currentValue = resetCounter(currentValue);
+        resetCounter();
       });
-
-      const resetCounter = (currentValue) => {
+      
+      const resetCounter = () => {
         counter.value = 0;
         alert('Counter has been reset!');
         subtract.disabled = false;
         add.disabled = false;
-        return 0;
       };
-
-      
-
-      subtract.addEventListener('click', subtractHandler);
-      add.addEventListener('click', addHandler);
-      resetButton.addEventListener('click', resetCounter);

@@ -53,14 +53,23 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
+  .container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
   
   /* Style for the limits section */
   .counter__limits {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
     margin-top: 20px;
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
   
   /* Style for the labels */

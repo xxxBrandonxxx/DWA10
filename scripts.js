@@ -5,6 +5,7 @@ const stepAmount = 1;
 // Set the initial value of the counter
 let currentValue = 0;
 
+
 // Define the function to handle the click on the subtract button
 const subtractHandler = () => {
     // Calculate the new value of the counter by subtracting the step amount
